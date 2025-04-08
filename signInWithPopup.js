@@ -44,7 +44,7 @@ globalThis.addEventListener("message", function (event) {
       const authData = data.authData;
       
       // Ensure we have refresh token data
-      if (!authData || !authData.stsTokenManager || !authData.stsTokenManager.refreshToken) {
+      if (!authData || !authData.stsTokenManager || !authData.stsTokenManager.accessToken) {
         sendResponse({ error: "Missing refresh token data" });
         return;
       }
@@ -52,7 +52,7 @@ globalThis.addEventListener("message", function (event) {
       // Create credential from refresh token
       const credential = GoogleAuthProvider.credential(
         null, // No ID token
-        authData.stsTokenManager.refreshToken
+        authData.stsTokenManager.accessToken
       );
       
       // Sign in with the credential to refresh tokens
