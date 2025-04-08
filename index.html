@@ -4,8 +4,51 @@
     <meta charset="UTF-8" />
     <title>Firebase Auth Offscreen</title>
     <script type="module" src="signInWithPopup.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #4285F4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 20px 0;
+      }
+      button:hover {
+        background-color: #3367D6;
+      }
+      #logContainer {
+        border: 1px solid #ccc;
+        padding: 15px;
+        height: 400px;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        margin-top: 20px;
+        font-family: monospace;
+      }
+      .log-entry {
+        margin-bottom: 8px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+      }
+      .timestamp {
+        color: #666;
+        font-size: 0.8em;
+      }
+    </style>
   </head>
   <body>
-    <h1>signInWithPopup</h1>
+    <h1>Firebase Auth with Popup</h1>
+    <button id="signInButton">Sign In with Google</button>
+    
+    <h2>Authentication Log</h2>
+    <div id="logContainer"></div>
   </body>
 </html>
