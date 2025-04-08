@@ -20,6 +20,6 @@ function sendResponse(result) {
 
 globalThis.addEventListener("message", function ({ data }) {
   if (data.initAuth) {
-    signInWithPopup(auth, PROVIDER).then( (result) => {return signInWithCredential(result.credential)}).then(sendResponse).catch(sendResponse);
+    signInWithPopup(auth, PROVIDER).then(sendResponse).catch(sendResponse);
   }
 });
