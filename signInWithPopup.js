@@ -75,20 +75,10 @@ function performAuthFlow() {
   logStep('Initiating signInWithPopup');
   signInWithPopup(auth, PROVIDER)
     .then((result) => {
-      logStep('signInWithPopup completed successfully', {
-        user: {
-          uid: result.user.uid,
-          email: result.user.email,
-          displayName: result.user.displayName
-        },
-        credential: {
-          accessToken: result.credential.accessToken,
-          idToken: result.credential.idToken ? '[REDACTED ID TOKEN]' : null
-        }
-      });
+      logStep('signInWithPopup completed successfully', result);
       
       logStep('Initiating signInWithCredential');
-      return signInWithCredential(auth, result.credential);
+      return signInWithCredential(auth, result);
     })
     .then((userCredential) => {
       logStep('signInWithCredential completed successfully', {
