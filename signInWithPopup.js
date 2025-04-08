@@ -76,22 +76,8 @@ function performAuthFlow() {
   signInWithPopup(auth, PROVIDER)
     .then((result) => {
       logStep('signInWithPopup completed successfully', result);
-      
-      logStep('Initiating signInWithCredential');
-      return signInWithCredential(auth, result);
     })
-    .then((userCredential) => {
-      logStep('signInWithCredential completed successfully', {
-        user: {
-          uid: userCredential.user.uid,
-          email: userCredential.user.email,
-          displayName: userCredential.user.displayName
-        }
-      });
-      
-      return userCredential;
-    })
-    .then(sendResponse)
+     .then(sendResponse)
     .catch((error) => {
       logStep('Authentication error', {
         code: error.code,
